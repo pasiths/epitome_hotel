@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-##Install and import
+## Install and import
 
 ### `npm i react-router-dom`
 ### `npm install reactstrap react react-dom`
