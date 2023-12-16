@@ -3,12 +3,13 @@ import React from "react";
 import Header from "./../Header/Header";
 import Footer from "./../Footer/Footer";
 import Routers from "../../router/Routers";
+import Cafe from "../../pages/Cafe";
 
 const Layout = () => {
   return (
     <>
       <Header />
-      <Routers />
+      <Cafe />
       <Footer />
     </>
   );

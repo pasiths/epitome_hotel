@@ -1,8 +1,7 @@
 import React from 'react'
-import { Button, Col, Container, Row } from 'reactstrap'
+import { Col, Container, Row } from 'reactstrap'
 import heroImg from "../assets/images/hero-img01.png"
 import "../styles/home.css";
-import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -19,11 +18,11 @@ const Home = () => {
                 
 
                 <button className="btn1">
-                  <a to="/login">Login</a>
+                  <a to="#cafe">Login</a>
                 </button>
 
                 <button className="btn2">
-                  <a to="/register">Register</a>
+                  <a to="#register">Register</a>
                 </button>
                 
               </div>
