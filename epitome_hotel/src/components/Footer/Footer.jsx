@@ -47,8 +47,8 @@ const Footer = () => {
             <div className="logo">
               <img src={logo} alt="" />
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Commodi, enim.
+                Follow us ,<br />
+                On Social Media
               </p>
 
               <div className="social__links d-flex align-items-center gap-4">

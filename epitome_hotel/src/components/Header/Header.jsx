@@ -5,21 +5,8 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 
 import "./header.css";
+import { nav__links } from "../../pages/Cafe";
 
-const nav__links = [
-  {
-    path: "/home",
-    display: "Home",
-  },
-  {
-    path: "/about",
-    display: "About",
-  },
-  {
-    path: "/contact",
-    display: "Contact",
-  },
-];
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
