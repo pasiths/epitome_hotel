@@ -33,12 +33,6 @@ return (
                 className="d-flex align-items-center justify-content-around">
                 <MDBInput min={0} defaultValue={2} type="number" size="sm" />
               </MDBCol>
-
-              <MDBCol lg="3" className="offset-lg-1">
-                <MDBTypography tag="h6" className="mb-0">
-                  $499.00
-                </MDBTypography>
-              </MDBCol>
             </MDBRow>
 
           </MDBCardBody>
