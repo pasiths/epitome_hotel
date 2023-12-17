@@ -70,12 +70,10 @@ const Header = () => {
                 <Button className="btn secondary__btn">
                   <Link to="/login">Login</Link>
                 </Button>
-
                 <Button className="btn primary__btn">
                   <Link to="/register">Register</Link>
                 </Button>
               </div>
-
               <span className="mobile__menu" onClick={toggleMenu}>
                 <i class="ri-menu-line"></i>
               </span>

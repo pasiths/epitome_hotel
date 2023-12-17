@@ -24,17 +24,17 @@ const FoodCard = () => {
             </span>
           </div>
 
-          <h5 className="tour__title">
-            <Link to=''></Link>
-          </h5>
+          <h6 className="tour__title">
+          ID 0001
+          </h6>
 
           <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
             <h5>
-             <span> price</span>
+             <span> Food Name</span>
             </h5>
 
             <button className="btn booking__btn">
-              <Link to={`/tours/`}>Add to Cart</Link>
+              <Link to={`/tours/`}>Add</Link>
             </button>
           </div>
         </CardBody>

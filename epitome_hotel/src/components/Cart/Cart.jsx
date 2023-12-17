@@ -88,7 +88,7 @@ return (
           <MDBCardBody className="p-4">
 
             <MDBRow className="justify-content-between align-items-center">
-            <p className="lead fw-normal mb-2">Basic T-shirt</p>
+            <p className="lead fw-normal mb-2">Food Name</p>
               <MDBCol md="2" lg="2" xl="2">
                 <MDBCardImage className="rounded-3" fluid
                   src={foodimg}
