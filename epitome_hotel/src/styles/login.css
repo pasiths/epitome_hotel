@@ -10,8 +10,8 @@
   align-items: center;
   height: 100hv;
   /* background: url(); */
-  background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
-    url(../assets/images/login_background_image.avif) no-repeat;
+  /* background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
+    url(../assets/images/login_background_image.avif) no-repeat; */
   background-position: center center;
   background-size: cover;
 }
@@ -20,16 +20,17 @@
   width: 420px;
   background: transparent;
   border: 2px solid var(--secondary-color);
-  color: var(--text-sub-color);
+  color: var(--heading-color);
   border-radius: 10px;
   padding: 30px 40px;
   /* backdrop-filter: blur(30px); */
 }
 
-.wrapper h1 {
+.wrapper h1,
+.wrapper .h-title {
   font-size: 36px;
   text-align: center;
-  color: #fff;
+  color: var(--heading-color);
 }
 
 .wrapper .input-box {
@@ -48,12 +49,12 @@
   outline: none;
   border-radius: 40px;
   font-size: 16px;
-  color: var(--text-sub-color);
+  color: var(--heading-color);
   padding: 20px 45px 20px 20px;
 }
 
 .input-box input::placeholder {
-  color: var(--text-sub-color);
+  color: var(--heading-color);
 }
 
 .input-box .icon {
@@ -72,12 +73,12 @@
 }
 
 .remember-forgot label input {
-  accent-color: var(--text-sub-color);
+  accent-color: var(--heading-color);
   margin-right: 4px;
 }
 
 .remember-forgot a {
-  color: var(--text-sub-color);
+  color: var(--heading-color);
   text-decoration: none;
 }
 
@@ -93,7 +94,7 @@
   border: none;
   outline: none;
   border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--secondary-color);
   cursor: pointer;
   font-size: 16px;
   color: var(--text-color);
@@ -107,7 +108,7 @@
 }
 
 .register-link p a {
-  color: var(--text-sub-color);
+  color: var(--heading-color);
   text-decoration: none;
   font-weight: 600;
 }
@@ -121,7 +122,7 @@
   width: 620px;
   background: transparent;
   border: 2px solid var(--secondary-color);
-  color: var(--text-sub-color);
+  color: var(--heading-color);
   border-radius: 10px;
   padding: 30px 40px;
   /* backdrop-filter: blur(30px); */
@@ -129,7 +130,7 @@
 .wrapper2 h1 {
   font-size: 36px;
   text-align: center;
-  color: #fff;
+  color: var(--heading-color);
 }
 
 .wrapper2 .input-box {
@@ -147,7 +148,7 @@
   border: none;
   outline: none;
   border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--secondary-color);
   cursor: pointer;
   font-size: 16px;
   color: black;
