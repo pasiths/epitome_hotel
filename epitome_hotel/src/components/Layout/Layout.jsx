@@ -10,7 +10,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <Kitchen />
+      <Cafe />
       <Footer />
     </>
   );
