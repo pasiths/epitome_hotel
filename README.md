@@ -6,6 +6,8 @@
 ### `npm install reactstrap react react-dom`
 ### `npm install --save bootstrap`
 ### `npm install remixicon --save`
+### `npm i mdb-react-ui-kit`
+### `npm i @fortawesome/fontawesome-free`
 
 In the project directory, you can run:
 
