@@ -88,6 +88,10 @@ export default Cafe; export const nav__links = [
     display: "Kitchen",
   },
   {
+    path: "/addfooditem",
+    display: "Add Item",
+  },
+  {
     path: "/contact",
     display: "Contact",
   },
