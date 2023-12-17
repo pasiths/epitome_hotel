@@ -10,8 +10,8 @@
   --text-hover-color: #fff;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
-  --background-color: #fff;
-  --background-sub-color: #fff;
+  --background-color: #DACBC8;
+  --background-sub-color: #463C3B;
 }
 
 * {
@@ -22,9 +22,11 @@
 
 body {
   font-family: var(--font-name);
+  /* background-color: var(--background-color); */
 }
 
 section {
+  color: var(--background-color);
   padding: 50px 0px;
 }
 
