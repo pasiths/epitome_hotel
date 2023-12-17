@@ -11,6 +11,7 @@
     "mdb-react-ui-kit": "^7.0.0",
     "npx": "^10.2.2",
     "react": "^18.2.0",
+    "react-bootstrap-icons": "^1.10.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
