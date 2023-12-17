@@ -16,12 +16,12 @@ const Home = () => {
                 Order <br /> management <br /> System
               </h1>
               <div className="nav__btns d-flex align-items-center gap-4">
-                <button className="btn1">
-                  <Link to="/login">Login</Link>
+              <button className="btn1">
+                  <a href="/login">Login</a>
                 </button>
 
                 <button className="btn2">
-                  <Link to="/register">Register</Link>
+                  <a href="/register">Register</a>
                 </button>
               </div>
               <br />
