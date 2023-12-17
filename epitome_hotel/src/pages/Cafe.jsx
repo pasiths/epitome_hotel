@@ -28,31 +28,6 @@ const Cafe = () => {
                       <Col lg='3'>
                         <FoodCard />
                       </Col>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
-                    </Row>
-                    <br />
-                    {/* Row2 */}
-                    <Row>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
                     </Row>
                   </Container>
                 </section>
@@ -89,7 +64,7 @@ export default Cafe; export const nav__links = [
   },
   {
     path: "/addfooditem",
-    display: "Add Item",
+    display: "Item",
   },
 ];
 
