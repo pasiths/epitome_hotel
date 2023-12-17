@@ -29,27 +29,13 @@ const Kitchen = () => {
                       <Row lg='12'>
                         <OrderCard />
                       </Row>
-                      <div><br /></div>
-                      <Row lg='12'>
-                        <OrderCard />
-                      </Row>
-                      <div><br /></div>
-                      <Row lg='12'>
-                        <OrderCard />
-                      </Row>
-                      <div><br /></div>
-                      <Row lg='12'>
-                        <OrderCard />
-                      </Row>
                     </Row>
                   </Container>
                 </section>
               </div>
               <div>
-
               </div>
             </Col>
-
           </Col>
           <Col className="">
             <KitchenCart/>
