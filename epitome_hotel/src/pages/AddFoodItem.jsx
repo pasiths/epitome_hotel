@@ -6,7 +6,7 @@ import { redirect } from 'react-router-dom'
 const AddFoodItem = () => {
     return (
         <section className="login">
-            <div className="wrapper">
+            <div className="wrapper2">
                 <form action="">
                     <h1>Add Item</h1>
                     <div className="input-box">
@@ -31,12 +31,6 @@ const AddFoodItem = () => {
                     <div style={{ marginBottom: 8 }}><button type='submit' style={{ background: '#f5a623', color: 'white' }}>Add to Item List</button></div>
                     <div style={{ marginBottom: 8 }}><button type='submit' style={{ background: '#8f1b1b', color: 'white' }}>delete</button> </div>
                     <div style={{ marginBottom: 8 }}><button type='submit'>Cancel</button></div>
-
-
-
-
-
-
                     <div className="register-link">
                         <p>Is There Any Problem? <a href="#">Cancel</a></p>
                     </div>
