@@ -9,7 +9,7 @@ const FoodCard = (props) => {
     <div className="tour__card">
       <Card>
         <div className="tour__img">
-          <img src={props.imageUrl} alt="food-img"/>
+          <img src={props.image} alt="food-img"/>
         </div>
 
         <CardBody>
