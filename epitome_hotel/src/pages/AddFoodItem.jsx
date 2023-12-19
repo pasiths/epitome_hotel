@@ -1,9 +1,12 @@
 import React from 'react'
 import '../styles/login.css'
 import { MDBFile } from 'mdb-react-ui-kit'
+import Header from '../components/Header/Header'
 
 const AddFoodItem = () => {
     return (
+        <>
+        <Header/>
         <section className="login">
             <div className="wrapper2">
                 <form action="">
@@ -35,7 +38,8 @@ const AddFoodItem = () => {
                 </form>
             </div>
         </section>
+        </>
     )
 }
 
-export default AddFoodItem
+export default AddFoodItem;

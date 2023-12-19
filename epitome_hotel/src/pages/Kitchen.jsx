@@ -3,14 +3,15 @@ import React from "react";
 import "../styles/cafe.css";
 import { Container, Row, Col } from "reactstrap";
 import SearchBar from "../components/SearchBar/SearchBar";
-import FoodCard from "../components/Card/FoodCard";
 import KitchenCart from "../components/Cart/KitchenCart";
 import OrderCard from "../components/Card/OrderCard";
+import KitchenHeader from "../components/Header/KitchenHeader"
 
 const Kitchen = () => {
 
   return (
     <>
+    <KitchenHeader/>
       <Container>
         <Row lg="">
           <Col className="">
