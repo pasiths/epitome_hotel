@@ -3,9 +3,13 @@ import { Col, Container, Row } from "reactstrap";
 import heroImg from "../assets/images/hero-img01.png";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
+import Header from "../components/Header/Header";
 
 const Home = () => {
   return (
+    <>
+    <Header/>
+
     <section>
       <Container>
         <Row>
@@ -45,6 +49,7 @@ const Home = () => {
         </Row>
       </Container>
     </section>
+    </>
   );
 };
 

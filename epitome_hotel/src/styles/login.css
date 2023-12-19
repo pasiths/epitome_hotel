@@ -10,8 +10,7 @@
   align-items: center;
   height: 100hv;
   /* background: url(); */
-  background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
-    url(../assets/images/login_background_image.avif) no-repeat;
+  background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7));
   background-position: center center;
   background-size: cover;
 }
