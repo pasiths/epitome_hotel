@@ -26,6 +26,14 @@ export const nav__links = [
     path: "/rooftoppoolbarhome",
     display: "RTPB",
   },
+  {
+    path: "/cloud9cafehome",
+    display: "C9C",
+  },
+  {
+    path: "/feast365resturenthome",
+    display: "F365",
+  }
 ];
 
 

@@ -3,7 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import rooftop from "../assets/images/rooftop.png";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import RooftopPoolbarHeader from "../components/Header/RooftopPoolbarHeader";
+import RooftopPoolbarHeader from "../components/Header/OutletHeader";
 
 
 const RooftopPoolbarHome = () => {

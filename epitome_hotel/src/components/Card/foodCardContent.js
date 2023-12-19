@@ -2,76 +2,64 @@
 const foodCardContent = [
     {
         id: 1,
-        foodname: "Vegetable Fried Rice",
-        image: "https://example.com/fried_rice.jpg", // Replace with the actual image URL
+        foodname: "Fruit Skewers",
+        image: " https://ibb.co/KyCDd1y", 
         key: "00001"
     },
     {
         id: 2,
-        foodname: "Chicken Biryani",
-        image: "https://example.com/chicken_biryani.jpg", // Replace with the actual image URL
+        foodname: "Chicken Wings",
+        image: "https://ibb.co/FkQJ4D9", 
         key: "00002"
     },
     {
         id: 3,
-        foodname: "Fish Curry and Rice",
-        image: "https://example.com/fish_curry_rice.jpg", // Replace with the actual image URL
+        foodname: "Vegetable Spring Rolls",
+        image: "", 
         key: "00003"
     },
     {
         id: 4,
-        foodname: "Dhal Curry with Roti",
-        image: "https://example.com/dhal_curry_roti.jpg", // Replace with the actual image URL
+        foodname: "Bruschetta",
+        image: "https://ibb.co/pW3zHdz",
         key: "00004"
     },
     {
         id: 5,
-        foodname: "String Hoppers with Kiri Hodi",
-        image: "https://example.com/string_hoppers_kiri_hodi.jpg", // Replace with the actual image URL
+        foodname: "Mixed Berry Smoothie",
+        image: "https://ibb.co/bKW86FM", 
         key: "00005"
     },
     {
         id: 6,
-        foodname: "Kottu Roti",
-        image: "https://example.com/kottu_roti.jpg", // Replace with the actual image URL
+        foodname: "Mint and LIme Mojito with Soda",
+        image: "https://ibb.co/9wkQrHp",
         key: "00006"
     },
     {
         id: 7,
-        foodname: "Lamprais",
-        image: "https://example.com/lamprais.jpg", // Replace with the actual image URL
+        foodname: "Iced Tea",
+        image: "https://ibb.co/KL3VDM0", 
         key: "00007"
     },
     {
         id: 8,
-        foodname: "Gotukola Sambol",
-        image: "https://example.com/gotukola_sambol.jpg", // Replace with the actual image URL
+        foodname: "Red or White Wine with Fruits",
+        image: "https://ibb.co/kG6k71G", 
         key: "00008"
     },
     {
         id: 9,
-        foodname: "Wambatu Moju",
-        image: "https://example.com/wambatu_moju.jpg", // Replace with the actual image URL
+        foodname: "Sparkling Water",
+        image: "https://ibb.co/6H8HNJ2", // Replace with the actual image URL
         key: "00009"
     },
     {
         id: 10,
-        foodname: "Pol Sambol with Kiribath",
-        image: "https://example.com/pol_sambol_kiribath.jpg", // Replace with the actual image URL
+        foodname: "Lemonade",
+        image: "https://ibb.co/NLpV4FN https://ibb.co/NLpV4FN", // Replace with the actual image URL
         key: "00010"
     },
-    {
-        id: 11,
-        foodname: "Hoppers with Katta Sambol",
-        image: "https://example.com/hoppers_katta_sambol.jpg", // Replace with the actual image URL
-        key: "00011"
-    },
-    {
-        id: 12,
-        foodname: "Egg Curry with Rice",
-        image: "https://example.com/egg_curry_rice.jpg", // Replace with the actual image URL
-        key: "00012"
-    },
-];
+   ];
 
 export default foodCardContent;

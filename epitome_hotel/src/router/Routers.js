@@ -8,6 +8,10 @@ import Cafe from "../pages/Cafe"
 import Kitchen from "../pages/Kitchen";
 import AddFoodItem from "../pages/AddFoodItem";
 import RooftopPoolbarHome from "../pages/RooftopPoolbarHome";
+import Cloud9CafeHome from "../pages/Cloud9CafeHome";
+import Feast365ResturentHome from "../pages/Feast365ResturentHome"
+
+
 const Routers = () => {
   return (
     <Routes>
@@ -19,6 +23,10 @@ const Routers = () => {
       <Route path="/login" element={<Login/> }/>
       <Route path="/register" element={<Register/> }/>
       <Route path="/rooftoppoolbarhome" element={<RooftopPoolbarHome/>}/>
+      <Route path="/cloud9cafeHome" element={<Cloud9CafeHome/>}/>
+      <Route path="/feast365resturenthome" element={<Feast365ResturentHome/>}/>
+
+
     </Routes>
   );
 };
