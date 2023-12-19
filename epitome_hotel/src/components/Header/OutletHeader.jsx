@@ -6,23 +6,22 @@ import logo from "../../assets/images/logo.png";
 
 import "./header.css";
 export const nav__links = [
-    {
-      path: "/home",
-      display: "Home",
-    },
-    {
-      path: "/cafe",
-      display: "Outlet",
-    },
-  ];
-  
+  {
+    path: "/home",
+    display: "Home",
+  },
+  {
+    path: "/cafe",
+    display: "Outlet",
+  },
+];
+
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const navigate = useNavigate();
 
   const stickyHeaderFunc = () => {
-    window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 80 ||
         document.documentElement.scrollTop > 80
@@ -31,14 +30,16 @@ const Header = () => {
       } else {
         headerRef.current.classList.remove("sticky__header");
       }
-    });
+    
   };
 
   useEffect(() => {
-    stickyHeaderFunc();
-
-    return window.removeEventListener("scroll", stickyHeaderFunc);
-  });
+    const handleScroll =()=>stickyHeaderFunc();
+    window.removeEventListener("scroll", handleScroll);
+    return()=>{
+      window.removeEventListener("scroll",handleScroll);
+    }
+  },[]);
 
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
@@ -77,10 +78,10 @@ const Header = () => {
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
                 <Button className="btn secondary__btn">
-
-                  <Link to="">Profile</Link>
-                  <i class="icon ri-user-2-fill" style={{fontSize:15, marginLeft:8}}></i>
-                  
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button className="btn primary__btn">
+                  <Link to="/register">Register</Link>
                 </Button>
               </div>
               <span className="mobile__menu" onClick={toggleMenu}>
