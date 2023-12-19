@@ -2,7 +2,7 @@
     width: 100%;
     height: 80px;
     line-height: 80px;
-    background: var(--background-sub-color);
+    background: var(--background-color);
   }
   
   .logo img {
@@ -38,7 +38,7 @@
     width: 100%;
     height: 80px;
     line-height: 80px;
-    background: var(--background-sub-color);
+    background: var(--background-color);
     position: sticky;
     top: 0;
     left: 0;

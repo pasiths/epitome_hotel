@@ -3,38 +3,39 @@ import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 import foodimg from "../../assets/images/food-4.jpg";
 
+
 import "./card.css";
 
-const FoodCard = () => {
+const FoodCard = (props) => {
   return (
     <div className="tour__card">
       <Card>
         <div className="tour__img">
-          <img src={foodimg} alt="food-img" />
+          <img src={props.image} alt="food-img" />
         </div>
 
         <CardBody>
           <div className="card__top d-flex align-items-center justify-content-between">
             <span className="tour__location d-flex align-items-center gap-1">
-              <i class="ri-map-pin-line"></i> 
+              <i className="ri-map-pin-line"></i> 
             </span>
             <span className="tour__rating d-flex align-items-center gap-1">
-              <i class="ri-star-s-fill"></i>
+              <i className="ri-star-s-fill"></i>
               
             </span>
           </div>
 
           <h6 className="tour__title">
-          ID 0001
+          {props.id}
           </h6>
 
           <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
             <h5>
-             <span> Food Name</span>
+             <span>{props.foodname}</span>
             </h5>
 
             <button className="btn booking__btn">
-              <Link to={`/tours/`}>Add</Link>
+              <Link to={``}>Add</Link>
             </button>
           </div>
         </CardBody>

@@ -7,6 +7,7 @@ import Register from "../pages/Register"
 import Cafe from "../pages/Cafe"
 import Kitchen from "../pages/Kitchen";
 import AddFoodItem from "../pages/AddFoodItem";
+import RooftopPoolbarHome from "../pages/RooftopPoolbarHome";
 const Routers = () => {
   return (
     <Routes>
@@ -17,6 +18,7 @@ const Routers = () => {
       <Route path="/addfooditem" element={<AddFoodItem/>}/>
       <Route path="/login" element={<Login/> }/>
       <Route path="/register" element={<Register/> }/>
+      <Route path="/rooftoppoolbarhome" element={<RooftopPoolbarHome/>}/>
     </Routes>
   );
 };

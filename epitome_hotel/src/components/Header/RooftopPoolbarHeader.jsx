@@ -6,30 +6,16 @@ import logo from "../../assets/images/logo.png";
 
 import "./header.css";
 export const nav__links = [
-  {
-    path: "/home",
-    display: "Home",
-  },
-  {
-    path: "/cafe",
-    display: "Cafe",
-  },
-  {
-    path: "/kitchen",
-    display: "Kitchen",
-  },
-  {
-    path: "/addfooditem",
-    display: "Item",
-  },
-  {
-    path: "/rooftoppoolbarhome",
-    display: "RTPB",
-  },
-];
-
-
-
+    {
+      path: "/home",
+      display: "Home",
+    },
+    {
+      path: "/cafe",
+      display: "Outlet",
+    },
+  ];
+  
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
@@ -91,10 +77,10 @@ const Header = () => {
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
                 <Button className="btn secondary__btn">
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button className="btn primary__btn">
-                  <Link to="/register">Register</Link>
+
+                  <Link to="">Profile</Link>
+                  <i class="icon ri-user-2-fill" style={{fontSize:15, marginLeft:8}}></i>
+                  
                 </Button>
               </div>
               <span className="mobile__menu" onClick={toggleMenu}>

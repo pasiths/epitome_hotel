@@ -8,6 +8,7 @@
 ### `npm install remixicon --save`
 ### `npm i mdb-react-ui-kit`
 ### `npm i @fortawesome/fontawesome-free`
+### `npm install react-use-cart`
 
 In the project directory, you can run:
 

@@ -5,11 +5,13 @@ import { Container, Row, Col } from "reactstrap";
 import SearchBar from "../components/SearchBar/SearchBar";
 import FoodCard from "../components/Card/FoodCard";
 import Cart from "../components/Cart/Cart";
+import foodCardContent from "../components/Card/foodCardContent";
+import Header from "../components/Header/Header";
 
 const Cafe = () => {
-
   return (
     <>
+    <Header/>
       <Container>
         <Row lg="">
           <Col className="">
@@ -24,47 +26,30 @@ const Cafe = () => {
                 </section>
                 <section className="pt-0">
                   <Container>
-                    <Row >
-                      <Col lg='3'>
-                        <FoodCard />
-                      </Col>
+                    <Row >        
+                        {foodCardContent.map(contents=>(
+                          <Col lg='3' style={{marginBottom:10}}>
+                          <FoodCard
+                            key={contents.id}
+                            id={contents.key}
+                            image={contents.image}
+                            foodname={contents.foodname}
+                          />
+                          </Col>
+                        ))}                   
                     </Row>
                   </Container>
                 </section>
               </div>
-              <div>
-
-              </div>
             </Col>
-
           </Col>
           <Col className="">
             <Cart/>
           </Col>
-
         </Row>
       </Container>
-
     </>
   );
 };
 
-export default Cafe; export const nav__links = [
-  {
-    path: "/home",
-    display: "Home",
-  },
-  {
-    path: "/cafe",
-    display: "Cafe",
-  },
-  {
-    path: "/kitchen",
-    display: "Kitchen",
-  },
-  {
-    path: "/addfooditem",
-    display: "Item",
-  },
-];
-
+export default Cafe;

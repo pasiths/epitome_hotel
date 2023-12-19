@@ -10,8 +10,7 @@
   align-items: center;
   height: 100hv;
   /* background: url(); */
-  /* background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
-    url(../assets/images/login_background_image.avif) no-repeat; */
+  background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7));
   background-position: center center;
   background-size: cover;
 }
@@ -20,17 +19,16 @@
   width: 420px;
   background: transparent;
   border: 2px solid var(--secondary-color);
-  color: var(--heading-color);
+  color: var(--text-sub-color);
   border-radius: 10px;
   padding: 30px 40px;
   /* backdrop-filter: blur(30px); */
 }
 
-.wrapper h1,
-.wrapper .h-title {
+.wrapper h1 {
   font-size: 36px;
   text-align: center;
-  color: var(--heading-color);
+  color: #fff;
 }
 
 .wrapper .input-box {
@@ -49,12 +47,12 @@
   outline: none;
   border-radius: 40px;
   font-size: 16px;
-  color: var(--heading-color);
+  color: var(--text-sub-color);
   padding: 20px 45px 20px 20px;
 }
 
 .input-box input::placeholder {
-  color: var(--heading-color);
+  color: var(--text-sub-color);
 }
 
 .input-box .icon {
@@ -73,12 +71,12 @@
 }
 
 .remember-forgot label input {
-  accent-color: var(--heading-color);
+  accent-color: var(--text-sub-color);
   margin-right: 4px;
 }
 
 .remember-forgot a {
-  color: var(--heading-color);
+  color: var(--text-sub-color);
   text-decoration: none;
 }
 
@@ -90,11 +88,11 @@
 .wrapper button {
   width: 100%;
   height: 45px;
-  /* background: var(--background-color); */
+  background: var(--background-color);
   border: none;
   outline: none;
   border-radius: 40px;
-  box-shadow: 0 0 10px var(--secondary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
   color: var(--text-color);
@@ -108,7 +106,7 @@
 }
 
 .register-link p a {
-  color: var(--heading-color);
+  color: var(--text-sub-color);
   text-decoration: none;
   font-weight: 600;
 }
@@ -117,12 +115,11 @@
   color: var(--text-hover-color);
   text-decoration: underline;
 }
-
 .wrapper2 {
   width: 620px;
   background: transparent;
   border: 2px solid var(--secondary-color);
-  color: var(--heading-color);
+  color: var(--text-sub-color);
   border-radius: 10px;
   padding: 30px 40px;
   /* backdrop-filter: blur(30px); */
@@ -130,31 +127,27 @@
 .wrapper2 h1 {
   font-size: 36px;
   text-align: center;
-  color: var(--heading-color);
+  color: #fff;
 }
-
 .wrapper2 .input-box {
   position: relative;
   width: 100%;
   height: 50px;
   margin: 30px 0;
 }
-
-
 .wrapper2 button {
   width: 100%;
   height: 45px;
-  /* background: var(--background-color); */
+  background: var(--background-color);
   border: none;
   outline: none;
   border-radius: 40px;
-  box-shadow: 0 0 10px var(--secondary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
   color: black;
   font-weight: 700;
 }
-
 .wrapper2 .register-link {
   font-size: 14.5px;
   text-align: center;

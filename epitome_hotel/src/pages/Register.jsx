@@ -9,7 +9,7 @@ const Register = () => {
     <section className="login">
     <div className="wrapper2">
       <form action="">
-        <h1 className="h-title">Register</h1>
+        <h1>Register</h1>
 
         <div className="input-box">
           <input type="fname" name="" id="" placeholder='First Name' required/>
