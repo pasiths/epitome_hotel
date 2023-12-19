@@ -11,8 +11,8 @@ export const nav__links = [
       display: "Home",
     },
     {
-      path: "/cafe",
-      display: "Outlet",
+      path: "/kitchen",
+      display: "Kitchen",
     },
   ];
   

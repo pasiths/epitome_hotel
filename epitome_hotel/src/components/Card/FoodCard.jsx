@@ -33,7 +33,7 @@ const FoodCard = (props) => {
             </h5>
 
             <button className="btn booking__btn">
-              <Link to={``}>Add</Link>
+              <Link>Add</Link>
             </button>
           </div>
         </CardBody>

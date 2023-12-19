@@ -1,11 +1,14 @@
 import React from "react";
 
 import "../styles/login.css";
+import Header from "../components/Header/Header";
 
 
 
 const Register = () => {
   return (
+    <>
+    <Header/>
     <section className="login">
     <div className="wrapper2">
       <form action="">
@@ -44,11 +47,12 @@ const Register = () => {
         <button type='submit'>Register</button>
 
         <div className="register-link">
-          <p>Already have an account? <a href="#">Log In</a></p>
+          <p>Already have an account? <a href="#" style={{color:"black"}}>Log In</a></p>
         </div>
       </form>
     </div>
   </section>
+  </>
   );
 };
 

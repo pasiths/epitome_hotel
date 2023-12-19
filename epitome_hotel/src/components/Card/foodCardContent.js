@@ -59,7 +59,7 @@ const foodCardContent = [
         foodname: "Lemonade",
         image: "https://ibb.co/NLpV4FN https://ibb.co/NLpV4FN", // Replace with the actual image URL
         key: "00010"
-    },
+    }
    ];
 
 export default foodCardContent;

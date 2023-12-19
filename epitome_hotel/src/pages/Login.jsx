@@ -1,8 +1,12 @@
 import React from 'react'
 import '../styles/login.css'
+import Header from '../components/Header/Header'
 
 const Login = () => {
+
   return (
+    <>
+    <Header/>
     <section className="login">
       <div className="wrapper">
         <form action="">
@@ -27,11 +31,12 @@ const Login = () => {
           <button type='submit'>Login</button>
 
           <div className="register-link">
-            <p>Don't have an account? <a href="#">Register</a></p>
+            <p>Don't have an account? <a href="#" style={{color:"black"}}>Register</a></p>
           </div>
         </form>
       </div>
     </section>
+    </>
   )
 }
 

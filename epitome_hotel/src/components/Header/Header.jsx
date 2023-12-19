@@ -32,7 +32,19 @@ export const nav__links = [
   },
   {
     path: "/feast365resturenthome",
-    display: "F365",
+    display: "365",
+  },
+  {
+    path: "/coldkitchen",
+    display: "CK",
+  },
+  {
+    path: "/hotkitchen",
+    display: "HK",
+  },
+  {
+    path: "/mainbar",
+    display: "MB",
   }
 ];
 
@@ -60,7 +72,7 @@ const Header = () => {
     stickyHeaderFunc();
 
     return window.removeEventListener("scroll", stickyHeaderFunc);
-  });
+  },[]);
 
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
