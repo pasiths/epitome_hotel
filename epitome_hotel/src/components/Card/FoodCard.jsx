@@ -1,8 +1,6 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
-import foodimg from "../../assets/images/food-4.jpg";
-
 
 import "./card.css";
 
@@ -11,7 +9,7 @@ const FoodCard = (props) => {
     <div className="tour__card">
       <Card>
         <div className="tour__img">
-          <img src={props.image} alt="food-img" />
+          <img src={props.imageUrl} alt="food-img"/>
         </div>
 
         <CardBody>

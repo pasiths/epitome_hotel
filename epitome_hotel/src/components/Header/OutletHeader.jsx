@@ -13,7 +13,7 @@ export const nav__links = [
     {
       path: "/cafe",
       display: "Outlet",
-    },
+    }
   ];
   
 const Header = () => {
