@@ -5,7 +5,7 @@ import { Container, Row, Col } from "reactstrap";
 import SearchBar from "../components/SearchBar/SearchBar";
 import FoodCard from "../components/Card/FoodCard";
 import Cart from "../components/Cart/Cart";
-import foodCardContent from "../components/Card/foodCardContent";
+import content from "../components/Card/content";
 import Header from "../components/Header/Header";
 
 const Cafe = () => {
@@ -26,14 +26,14 @@ const Cafe = () => {
                 </section>
                 <section className="pt-0">
                   <Container>
-                    <Row >        
-                        {foodCardContent.map(contents=>(
+                    <Row >
+                        {content.map(content=>(
                           <Col lg='3' style={{marginBottom:10}}>
                           <FoodCard
-                            key={contents.id}
-                            id={contents.key}
-                            image={contents.image}
-                            foodname={contents.foodname}
+                            key={content.id}
+                            id={content.key}
+                            image={content.image}
+                            foodname={content.foodname}
                           />
                           </Col>
                         ))}                   

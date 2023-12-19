@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/login.css'
 import Header from '../components/Header/Header'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -31,11 +32,18 @@ const Login = () => {
           <button type='submit'>Login</button>
 
           <div className="register-link">
-            <p>Don't have an account? <a href="#" style={{color:"black"}}>Register</a></p>
+            <p>Don't have an account? <a href="#" >Register</a></p>
           </div>
         </form>
       </div>
     </section>
+    <button><Link to={"/adminpanel"}>Admin panel</Link></button>
+    <button><Link to={"/cloud9cafehome"}>Cloud 9 Cafe</Link></button>
+    <button><Link to={"/rooftoppoolbar"}>Rooftop poolbar</Link></button>
+    <button><Link to={"/feast365resturenthome"}>Feast 365 Restaurent</Link></button>
+    <button><Link to={"/coldkitchen"}>Cold Kitchen</Link></button>
+    <button><Link to={"/hotkitchen"}>Hot Kitchen</Link></button>
+    <button><Link to={"/mainbar"}>Main bar</Link></button>
     </>
   )
 }
