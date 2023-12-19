@@ -74,7 +74,7 @@ const Header = () => {
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
                 <Button className="btn secondary__btn">
-                  <Link to="/profile">Profile</Link>
+                  <Link to="/userprofile">Profile</Link>
                   <i class="icon ri-user-2-fill" style={{fontSize:24, marginLeft:8}}></i>
                 </Button>
               </div>

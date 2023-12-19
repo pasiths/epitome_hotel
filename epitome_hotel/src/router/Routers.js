@@ -14,7 +14,6 @@ import ColdKitchen from "../pages/ColdKitchen";
 import HotKitchen from "../pages/HotKitchen";
 import MainBar from "../pages/MainBar";
 import AdminPanel from "../pages/AdminPanel";
-import Profile from "../pages/Profile";
 import AdminProfile from "../pages/AdminProfile";
 import UserProfile from "../pages/UserProfile"
 
@@ -36,7 +35,6 @@ const Routers = () => {
       <Route path="/hotkitchen" element={<HotKitchen/>}/>
       <Route path="/mainbar" element={<MainBar/>}/>
       <Route path="/adminpanel" element={<AdminPanel/>}/>
-      <Route path="/profile" element={<Profile/>}/>
       <Route path="/adminprofile" element={<AdminProfile/>}/>
       <Route path="/userprofile" element={<UserProfile/>}/>
 
