@@ -13,6 +13,9 @@ import Feast365ResturentHome from "../pages/Feast365ResturentHome"
 import ColdKitchen from "../pages/ColdKitchen";
 import HotKitchen from "../pages/HotKitchen";
 import MainBar from "../pages/MainBar";
+import AdminPanel from "../pages/AdminPanel";
+import AdminProfile from "../pages/AdminProfile";
+import UserProfile from "../pages/UserProfile"
 
 
 const Routers = () => {
@@ -31,7 +34,9 @@ const Routers = () => {
       <Route path="/coldkitchen" element={<ColdKitchen/>}/>
       <Route path="/hotkitchen" element={<HotKitchen/>}/>
       <Route path="/mainbar" element={<MainBar/>}/>
-
+      <Route path="/adminpanel" element={<AdminPanel/>}/>
+      <Route path="/adminprofile" element={<AdminProfile/>}/>
+      <Route path="/userprofile" element={<UserProfile/>}/>
 
 
     </Routes>

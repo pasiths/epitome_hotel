@@ -1,15 +1,14 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
-import heroImg from "../assets/images/hero-img01.png";
+import heroImg from "../assets/images/adminpanel.jpg";
 import "../styles/home.css";
-import Header from "../components/Header/LoginHeader";
+import Header from "../components/Header/AdminHeader";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const AdminPanel = () => {
   return (
     <>
     <Header/>
-
     <section>
       <Container>
         <Row>
@@ -17,11 +16,15 @@ const Home = () => {
             <div className="hero__content">
               <h1>
                 <span className="highlight"> Epitome's </span>
-                Order <br /> management <br /> System
+                Order <br /> management <br /> System <br /><span className="highlight">Admin's Panel</span>
               </h1>
               <div className="nav__btns d-flex align-items-center gap-4">
               <button className="btn2">
-                  <Link to="/login" style={{color:"white" }}>Login</Link>
+                  <Link to={"/addfooditem"}style={{color:"white"}} >Items</Link>
+                </button>
+
+                <button className="btn2" >
+                  <Link to={"/Register"} style={{color:"white"}}>User</Link>
                 </button>
               </div>
               <br />
@@ -49,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AdminPanel;

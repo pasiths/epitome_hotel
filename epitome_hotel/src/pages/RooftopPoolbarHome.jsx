@@ -24,7 +24,7 @@ const RooftopPoolbarHome = () => {
 
                             <div className="nav__btns d-flex align-items-center gap-4">
                                 <button className="btn2">
-                                    <Link>Go to Outlet</Link>
+                                    <Link to={"/cafe"} style={{color:"white"}}>Go to Outlet</Link>
                                     <i class="icon ri-arrow-right-s-line" style={{marginLeft:20}}></i>
 
                                 </button>

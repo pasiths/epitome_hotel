@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/login.css'
 import { MDBFile } from 'mdb-react-ui-kit'
-import Header from '../components/Header/Header'
+import Header from '../components/Header/AdminHeader'
 
 const AddFoodItem = () => {
     return (

@@ -7,11 +7,6 @@ import logo from "../../assets/images/logo.png";
 import "./header.css";
 export const nav__links = [
   {
-    path: "/home",
-    display: "Home",
-  },
-
-  {
     path: "/kitchen",
     display: "Kitchen",
   },
@@ -36,7 +31,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll =()=>stickyHeaderFunc();
-    window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return()=>{
       window.removeEventListener("scroll",handleScroll);
     }
@@ -79,10 +74,8 @@ const Header = () => {
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
                 <Button className="btn secondary__btn">
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button className="btn primary__btn">
-                  <Link to="/register">Register</Link>
+                  <Link to="/userprofile">Profile</Link>
+                  <i class="icon ri-user-2-fill" style={{fontSize:24, marginLeft:8}}></i>
                 </Button>
               </div>
               <span className="mobile__menu" onClick={toggleMenu}>

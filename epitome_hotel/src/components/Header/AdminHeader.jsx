@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect } from "react";
 import { Container, Row, Button } from "reactstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 
@@ -7,9 +7,13 @@ import logo from "../../assets/images/logo.png";
 import "./header.css";
 export const nav__links = [
   {
-    path: "/cafe",
-    display: "Outlet",
+    path: "/adminpanel",
+    display: "Home",
   },
+  {
+    path: "/addfooditem",
+    display: "Item",
+  }
 ];
 
 const Header = () => {
@@ -73,8 +77,11 @@ const Header = () => {
 
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
+              <Button className="btn primary__btn">
+                  <Link to="/register">User</Link>
+                </Button>
                 <Button className="btn secondary__btn">
-                  <Link to="/userprofile">Profile</Link>
+                  <Link to="/adminprofile">Profile</Link>
                   <i class="icon ri-user-2-fill" style={{fontSize:24, marginLeft:8}}></i>
                 </Button>
               </div>

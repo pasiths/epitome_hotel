@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../styles/login.css";
-import Header from "../components/Header/Header";
+import Header from "../components/Header/AdminHeader";
 
 
 
@@ -12,7 +12,7 @@ const Register = () => {
     <section className="login">
     <div className="wrapper2">
       <form action="">
-        <h1>Register</h1>
+        <h1>User</h1>
 
         <div className="input-box">
           <input type="fname" name="" id="" placeholder='First Name' required/>
@@ -44,7 +44,7 @@ const Register = () => {
           </div>
 
         
-        <button type='submit'>Register</button>
+        <button type='submit'>Save</button>
 
         <div className="register-link">
           <p>Already have an account? <a href="#" style={{color:"black"}}>Log In</a></p>
