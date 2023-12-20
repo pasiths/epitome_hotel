@@ -5,13 +5,11 @@ import { Link } from "react-router-dom";
 import "./card.css";
 
 const FoodCard = (props) => {
-  return (
     <div className="tour__card">
       <Card>
         <div className="tour__img">
           <img src={props.image} alt="food-img"/>
         </div>
-
         <CardBody>
           <div className="card__top d-flex align-items-center justify-content-between">
             <span className="tour__location d-flex align-items-center gap-1">
@@ -39,7 +37,6 @@ const FoodCard = (props) => {
         </CardBody>
       </Card>
     </div>
-  );
 };
 
 export default FoodCard;
