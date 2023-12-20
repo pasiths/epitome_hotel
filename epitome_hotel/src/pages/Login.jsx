@@ -26,10 +26,10 @@ const Login = () => {
       let role = null;
       const res = await axios.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      role= user.role;
-      if(role === "admin"){
+      role = user.role;
+      if (role === "admin") {
         navigate("/coldkitchen");
-      }else{
+      } else {
         navigate("/cafe");
       }
     } catch (err) {
@@ -84,9 +84,9 @@ const Login = () => {
             <div className="register-link">
               <p>
                 Don't have an account?{" "}
-                <a href="#" style={{ color: "black" }}>
-                  Register
-                </a>
+                <Link to={"/Register"} style={{ color: "black" }}>
+                Register
+                </Link>
               </p>
             </div>
           </form>
