@@ -9,6 +9,8 @@
 ### `npm i mdb-react-ui-kit`
 ### `npm i @fortawesome/fontawesome-free`
 ### `npm install react-use-cart`
+### `npm install @reduxjs/toolkit`
+### `npm install react-redux`
 
 In the project directory, you can run:
 
