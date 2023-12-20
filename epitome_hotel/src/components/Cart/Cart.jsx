@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  MDBBtn,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
@@ -12,7 +11,7 @@ import {
 from "mdb-react-ui-kit";
 import { useSelector,useDispatch } from "react-redux";
 import { Button } from "reactstrap";
-import { addtoCart, removefromCart } from "../../Redux/cartSlice";
+import { removefromCart } from "../../Redux/cartSlice";
 
 
 
@@ -23,7 +22,7 @@ export default function ProductCards() {
     <section className="mt-5" style={{ backgroundColor: "white", borderRadius: 10 }}>
       {cartItems.map(item => {
         return (
-            <MDBRow className=" h-100">
+            <MDBRow className="">
               <MDBCol md="12">
                 <MDBCard className="rounded-3 mb-4">
                   <MDBCardBody className="p-4">
