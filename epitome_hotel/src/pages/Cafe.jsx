@@ -4,14 +4,17 @@ import "../styles/cafe.css";
 import { Container, Row, Col } from "reactstrap";
 import SearchBar from "../components/SearchBar/SearchBar";
 import FoodCard from "../components/Card/FoodCard";
-import Cart from "../components/Cart/Cart";
+import Cart from "../components/Cart/CartBody";
 import content from "../components/Card/content";
 import Header from "../components/Header/Header";
+import { Provider } from "react-redux";
+import store from "../Redux/store";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 
 const Cafe = () => {
   return (
-    <>
-    <Header/>
+    <Provider store={store}>
+        <Header/>
       <Container>
         <Row lg="">
           <Col className="">
@@ -48,7 +51,7 @@ const Cafe = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </Provider>
   );
 };
 
