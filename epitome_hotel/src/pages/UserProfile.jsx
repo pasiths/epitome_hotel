@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "reactstrap";
 import heroImg from "../assets/images/adminpanel.jpg";
 import "../styles/home.css";
-import Header from "../components/Header/AdminHeader";
+import Header from "../components/Header/Header";
 import { Link } from "react-router-dom";
 
 const AdminProfile = () => {
