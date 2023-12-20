@@ -1,10 +1,19 @@
 import React from "react";
 import { Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { addtoCart } from "../../Redux/cartSlice";
 import "./card.css";
 
 const FoodCard = (props) => {
+  const dispatch =useDispatch()
+
+  const handleAddToCart = () => {
+    const { id, image, foodname } = props;
+    dispatch(addtoCart({ id, image, foodname }));
+  };
+
+  return(
     <div className="tour__card">
       <Card>
         <div className="tour__img">
@@ -30,13 +39,14 @@ const FoodCard = (props) => {
              <span>{props.foodname}</span>
             </h5>
 
-            <button className="btn booking__btn">
+            <button className="btn booking__btn" onClick={handleAddToCart}>
               <Link>Add</Link>
             </button>
           </div>
         </CardBody>
       </Card>
     </div>
+  )
 };
 
 export default FoodCard;
