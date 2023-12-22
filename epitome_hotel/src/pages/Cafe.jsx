@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import FoodCard from "../components/Card/FoodCard";
 import Cart from "../components/Cart/CartBody";
 import content from "../components/Card/content";
-import Header from "../components/Header/Header";
+import Header from "../components/Header/CafeHeader";
 import { Provider } from "react-redux";
 import store from "../Redux/store";
 import { BrowserRouter,Routes,Route } from "react-router-dom";

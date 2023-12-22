@@ -14,23 +14,23 @@ const FoodCard = (props) => {
   };
 
   return(
-    <div className="tour__card">
+    <div className="card__card">
       <Card>
-        <div className="tour__img">
+        <div className="card__img">
           <img src={props.image} alt="food-img"/>
         </div>
         <CardBody>
           <div className="card__top d-flex align-items-center justify-content-between">
-            <span className="tour__location d-flex align-items-center gap-1">
+            <span className="card__location d-flex align-items-center gap-1">
               <i className="ri-map-pin-line"></i> 
             </span>
-            <span className="tour__rating d-flex align-items-center gap-1">
+            <span className="card__rating d-flex align-items-center gap-1">
               <i className="ri-star-s-fill"></i>
               
             </span>
           </div>
 
-          <h6 className="tour__title">
+          <h6 className="card__title">
           {props.id}
           </h6>
 

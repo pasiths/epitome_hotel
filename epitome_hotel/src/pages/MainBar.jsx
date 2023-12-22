@@ -3,14 +3,14 @@ import { Col, Container, Row } from "reactstrap";
 import mainbar from "../assets/images/mainbar.png";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import KitchenHeader from "../components/Header/KitchenHeader";
+import Header from "../components/Header/AdminHeader";
 
 
 const ColdKitchen = () => {
 
     return (
         <>
-            <KitchenHeader />
+            <Header />
             <section>
                 <Container>
                     <Row>

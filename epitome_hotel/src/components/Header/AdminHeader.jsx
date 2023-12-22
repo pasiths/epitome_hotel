@@ -8,11 +8,31 @@ import "./header.css";
 export const nav__links = [
   {
     path: "/adminpanel",
-    display: "Home",
+    display: "Admin",
   },
   {
-    path: "/addfooditem",
-    display: "Item",
+    path: "/cloud9cafehome",
+    display: "Cloud9",
+  },
+  {
+    path: "/rooftoppoolbarhome",
+    display: "RooftopPool",
+  },
+  {
+    path: "/feast365resturenthome",
+    display: "MainRestaurant",
+  },
+  {
+    path: "/coldkitchen",
+    display: "ColdK",
+  },
+  {
+    path: "/hotkitchen",
+    display: "HotK",
+  },
+  {
+    path: "/mainbar",
+    display: "Main Bar",
   }
 ];
 
@@ -77,9 +97,9 @@ const Header = () => {
 
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
-              <Button className="btn primary__btn">
+              {/* <Button className="btn primary__btn">
                   <Link to="/register">User</Link>
-                </Button>
+                </Button> */}
                 <Button className="btn secondary__btn">
                   <Link to="/adminprofile">Profile</Link>
                   <i class="icon ri-user-2-fill" style={{fontSize:24, marginLeft:8}}></i>

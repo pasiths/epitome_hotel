@@ -23,19 +23,14 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      let role = null || "";
       const res = await axios.post("/auth/login", credentials);
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      role = user.role;
-      if (role === "admin") {
-        navigate("/coldkitchen");
-      } else {
-        navigate("/cafe");
-      }
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+      navigate("/adminpanel")
     } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response?.data });
     }
   };
+
 
   console.log(user);
   return (
@@ -76,7 +71,7 @@ const Login = () => {
               <a href="#">Forget Password</a>
             </div>
 
-            <button type="submit" onClick={handleClick}>
+            <button disabled={loading} type="submit" onClick={handleClick}>
               Login
             </button>
             {error && <span>{error.message}</span>}
@@ -85,34 +80,13 @@ const Login = () => {
               <p>
                 Don't have an account?{" "}
                 <Link to={"/Register"} style={{ color: "black" }}>
-                Register
+                  Register
                 </Link>
               </p>
             </div>
           </form>
         </div>
       </section>
-      <button>
-        <Link to={"/adminpanel"}>Admin panel</Link>
-      </button>
-      <button>
-        <Link to={"/cloud9cafehome"}>Cloud 9 Cafe</Link>
-      </button>
-      <button>
-        <Link to={"/rooftoppoolbar"}>Rooftop poolbar</Link>
-      </button>
-      <button>
-        <Link to={"/feast365resturenthome"}>Feast 365 Restaurent</Link>
-      </button>
-      <button>
-        <Link to={"/coldkitchen"}>Cold Kitchen</Link>
-      </button>
-      <button>
-        <Link to={"/hotkitchen"}>Hot Kitchen</Link>
-      </button>
-      <button>
-        <Link to={"/mainbar"}>Main bar</Link>
-      </button>
     </>
   );
 };

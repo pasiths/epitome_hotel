@@ -3,14 +3,14 @@ import { Col, Container, Row } from "reactstrap";
 import f365 from "../assets/images/Feast365.png";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import Cloud from "../components/Header/OutletHeader";
+import Header from "../components/Header/AdminHeader";
 
 
 const Cloud9CafeHome = () => {
 
     return (
         <>
-            <Cloud />
+            <Header />
             <section>
                 <Container>
                     <Row>

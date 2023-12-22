@@ -3,14 +3,14 @@ import { Col, Container, Row } from "reactstrap";
 import rooftop from "../assets/images/rooftop.png";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import RooftopPoolbarHeader from "../components/Header/OutletHeader";
+import Header from "../components/Header/AdminHeader";
 
 
 const RooftopPoolbarHome = () => {
     
     return (
         <>
-        <RooftopPoolbarHeader/>
+        <Header/>
         <section>
             <Container>
                 <Row>

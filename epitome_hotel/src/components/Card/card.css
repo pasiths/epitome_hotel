@@ -1,4 +1,4 @@
-.tour__img img {
+.card__img img {
     width: 100%;
     border-radius: 5px 5px 0 0;
   }
@@ -8,11 +8,11 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   }
   
-  .tour__img {
+  .card__img {
     position: relative;
   }
   
-  .tour__img span {
+  .card__img span {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -29,35 +29,35 @@
     color: var(--secondary-color);
   }
   
-  .tour__rating {
+  .card__rating {
     font-size: 0.9rem;
     color: var(--text-color);
   }
   
-  .tour__location {
+  .card__location {
     color: var(--heading-color);
     font-weight: 500;
     font-size: 0.9rem;
   }
   
-  .tour__rating i,
-  .tour__location i {
+  .card__rating i,
+  .card__location i {
     font-size: 1rem;
   }
   
-  .tour__title {
+  .card__title {
     margin-top: 1rem;
     font-size: 1.1rem;
     cursor: pointer;
   }
   
-  .tour__title a {
+  .card__title a {
     text-decoration: none;
     color: var(--heading-color);
     transition: 0.3s;
   }
   
-  .tour__title a:hover {
+  .card__title a:hover {
     color: var(--secondary-color);
   }
   
@@ -90,7 +90,7 @@
   }
   
   @media only screen and (max-width: 576px) {
-    .tour__title {
+    .card__title {
       font-size: 1rem;
     }
   
@@ -101,8 +101,8 @@
       padding: 0.2rem 0.5rem !important;
     }
   
-    .tour__location,
-    .tour__rating {
+    .card__location,
+    .card__rating {
       font-size: 0.8rem;
     }
   }

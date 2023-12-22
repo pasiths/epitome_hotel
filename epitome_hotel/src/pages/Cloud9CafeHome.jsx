@@ -3,14 +3,14 @@ import { Col, Container, Row } from "reactstrap";
 import c9 from "../assets/images/cloud9cafe.png";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
-import Cloud from "../components/Header/OutletHeader";
+import Header from "../components/Header/AdminHeader";
 
 
 const Cloud9CafeHome = () => {
 
     return (
         <>
-            <Cloud />
+            <Header />
             <section>
                 <Container>
                     <Row>

@@ -18,7 +18,6 @@ const AdminProfile = () => {
                 <span className="highlight"> Profile </span>
               </h1>
               <p>
-                Profile details Fom Database
               </p>
               <div className="nav__btns d-flex align-items-center gap-4">
                 <button className="btn2" >

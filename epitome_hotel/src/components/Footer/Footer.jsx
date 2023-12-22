@@ -87,7 +87,7 @@ const Footer = () => {
               ))}
             </ListGroup>
           </Col>
-          <Col lg="3">
+          {/* <Col lg="3">
             <h5 className="footer__link-title">Quick Links</h5>
 
             <ListGroup className="footer__quick-links">
@@ -97,7 +97,7 @@ const Footer = () => {
                 </ListGroupItem>
               ))}
             </ListGroup>
-          </Col>
+          </Col> */}
           <Col lg="3">
             <h5 className="footer__link-title">Contact</h5>
 
@@ -137,7 +137,7 @@ const Footer = () => {
 
           <Col lg="12" className="text-center pt-5">
           <p className="copyright">
-              Copyright {year}, design and develop by Pasith Senevirathna. All rights
+              Copyright {year}, design and develop by DevPro Team, NIBM. All rights
               reserved.
             </p>
           </Col>
