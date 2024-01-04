@@ -1,19 +1,43 @@
 import "../styles/login.css";
-import Header from "../components/Header/AdminHeader";
-import { Link } from "react-router-dom";
+import Header from "../components/Header/Header";
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { useState } from "react";
 
 const Register = ({ inputs, title }) => {
-  const [file, setFile] = useState("");
-  const [info, setInfo] = useState({});
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    username: "",
+    role: "",
+  });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
   };
-  const handleClick = (e) => {
-   
+
+  const handleSubmit = async (e) => {
+    console.log(data);
+    e.preventDefault();
+    try {
+      const url = "http://localhost:8080/api/users";
+      const { data: res } = await axios.post(url, data);
+      navigate("/login");
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
   };
 
   return (
@@ -21,15 +45,15 @@ const Register = ({ inputs, title }) => {
       <Header />
       <section className="login">
         <div className="wrapper2">
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <h1>User</h1>
             <div className="input-box">
               <input
                 type="text"
-                name=""
-                id=""
                 placeholder="First Name"
+                name="firstName"
                 onChange={handleChange}
+                value={data.firstName}
                 required
               />
               <i class="icon ri--2-fill"></i>
@@ -37,21 +61,21 @@ const Register = ({ inputs, title }) => {
             <div className="input-box">
               <input
                 type="text"
-                name=""
-                id=""
                 placeholder="Last Name"
+                name="lastName"
                 onChange={handleChange}
+                value={data.lastName}
                 required
               />
               <i class="icon ri--2-fill"></i>
-            </div>{" "}
+            </div>
             <div className="input-box">
               <input
                 type="text"
-                name=""
-                id=""
                 placeholder="Username"
+                name="username"
                 onChange={handleChange}
+                value={data.username}
                 required
               />
               <i class="icon ri-user-2-fill"></i>
@@ -59,10 +83,10 @@ const Register = ({ inputs, title }) => {
             <div className="input-box">
               <input
                 type="email"
-                name=""
-                id=""
                 placeholder="Email"
+                name="email"
                 onChange={handleChange}
+                value={data.email}
                 required
               />
               <i class="icon ri-mail-line"></i>
@@ -70,10 +94,10 @@ const Register = ({ inputs, title }) => {
             <div className="input-box">
               <input
                 type="password"
-                name=""
-                id=""
                 placeholder="Password"
+                name="password"
                 onChange={handleChange}
+                value={data.password}
                 required
               />
               <i class="icon ri-lock-2-fill"></i>
@@ -92,7 +116,8 @@ const Register = ({ inputs, title }) => {
               name="role"
               id="role"
               className="input-box"
-              // onChange={}
+              onChange={handleChange}
+              value={data.role}
               style={{
                 border: "solid",
                 borderRadius: 30,
@@ -102,29 +127,19 @@ const Register = ({ inputs, title }) => {
                 marginTop: 14,
                 marginBottom: 14,
               }}
-              
             >
               <option value="">Role</option>
               <option value="Admin">Admin</option>
               <option value="poolbarUser">Poolbar User</option>
               <option value="cloud9cafeUser">Cloud 9 cafe User</option>
-              <option value="MainRestaurent">Main Restaurent User</option>
               <option value="hotKitchenUser">Hot Kitchen User</option>
               <option value="coldKitchenUser">Cold Kitchen User</option>
               <option value="mainBarUser">Main Bar User</option>
             </select>
-            <div className="input-box">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Location"
-                onChange={handleChange}
-                required
-              />
-              <i class="icon ri--2-fill"></i>
-            </div>
-            <button onClick={handleClick} type="submit">Save</button>
+
+            {error && <div>{error}</div>}
+
+            <button type="submit">Save</button>
             <div className="register-link">
               <p>
                 Already have an account?{" "}

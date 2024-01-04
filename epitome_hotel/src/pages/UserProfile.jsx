@@ -6,38 +6,44 @@ import Header from "../components/Header/Header";
 import { Link } from "react-router-dom";
 
 const AdminProfile = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    // window.location = "/";
+    window.location.reload();
+  };
   return (
     <>
-    <Header/>
-    <section>
-      <Container>
-        <Row>
-          <Col lg="6">
-            <div className="hero__content">
-              <h1>My 
-                <span className="highlight"> Profile </span>
-              </h1>
-              <p>
-              </p>
-              <div className="nav__btns d-flex align-items-center gap-4">
-                <button className="btn2" >
-                  <Link to={"/home"} style={{color:"white"}}>Log Out</Link>
-                </button>
+      <Header />
+      <section>
+        <Container>
+          <Row>
+            <Col lg="6">
+              <div className="hero__content">
+                <h1>
+                  My
+                  <span className="highlight"> Profile </span>
+                </h1>
+                <p></p>
+                <div className="nav__btns d-flex align-items-center gap-4">
+                  <button className="btn2">
+                    <Link onClick={handleLogout} style={{ color: "white" }}>
+                      Log Out
+                    </Link>
+                  </button>
+                </div>
+                <br />
+                <br />
               </div>
-              <br />
-              <br />
-              
-            </div>
-          </Col>
+            </Col>
 
-          <Col lg="6">
-            <div className="hero__img-box">
-              <img src={heroImg} alt="" />
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+            <Col lg="6">
+              <div className="hero__img-box">
+                <img src={heroImg} alt="" />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </>
   );
 };

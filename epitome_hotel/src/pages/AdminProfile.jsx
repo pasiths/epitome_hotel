@@ -6,6 +6,11 @@ import Header from "../components/Header/AdminHeader";
 import { Link } from "react-router-dom";
 
 const AdminProfile = () => {
+  const handleLogout = () => {
+		localStorage.removeItem("token");
+		// window.location = "/";
+		window.location.reload();
+	};
   return (
     <>
     <Header/>
@@ -23,8 +28,8 @@ const AdminProfile = () => {
                 <button className="btn2" >
                   <Link to={"/Register"} style={{color:"white"}}>Edit</Link>
                 </button>
-                <button className="btn1" >
-                  <Link to={"/home"} style={{color:"black", border:1, borderColor:"black"}}>Log Out</Link>
+                <button className="btn1" style={{color:"black", border:1, borderColor:"black"}} onClick={handleLogout}>
+                  Log Out
                 </button>
               </div>
               <br />

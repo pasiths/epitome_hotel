@@ -6,47 +6,69 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({
-    username: undefined,
-    password: undefined,
-  });
+  
+  const [data, setData] = useState({ username: "", password: "" });
+  const [error, setError] = useState("");
 
-  const { user, loading, error, dispatch } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
   };
 
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", credentials);
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/adminpanel")
-    } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response?.data });
+      const url = "http://localhost:8080/api/auth";
+      const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
+      const role = res.role;
+      console.log(role);
+      if (role === "Admin" || role === "poolbarUser" || role === "cloud9cafeUser" || role === "hotKitchenUser" || role === "coldKitchenUser" || role === "mainBarUser") {
+        if (role === "Admin") {
+          window.location = "/admin";
+        }
+        if (role === "poolbarUser") {
+          window.location = "/rooftoppoolbarhome";
+        }
+        if (role === "cloud9cafeUser") {
+          window.location = "/cloud9cafeHome";
+        }
+        if (role === "hotKitchenUser") {
+          window.location = "/hotkitchen";
+        }
+        if (role === "coldKitchenUser") {
+          window.location = "/coldkitchen";
+        }
+        if (role === "mainBarUser") {
+          window.location = "/mainbar";
+        }
+      } else {
+        setError("Invalid username or Password");
+      }
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
     }
   };
 
-
-  console.log(user);
   return (
     <>
       <Header />
       <section className="login">
         <div className="wrapper">
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <h1>Login</h1>
             <div className="input-box">
               <input
                 type="text"
-                name=""
-                id="username"
-                placeholder="Username"
+                placeholder="username"
+                name="username"
                 onChange={handleChange}
+                value={data.username}
                 required
               />
               <i class="icon ri-user-2-fill"></i>
@@ -54,10 +76,10 @@ const Login = () => {
             <div className="input-box">
               <input
                 type="password"
-                name=""
-                id="password"
                 placeholder="Password"
+                name="password"
                 onChange={handleChange}
+                value={data.password}
                 required
               />
               <i class="icon ri-lock-2-fill"></i>
@@ -71,10 +93,10 @@ const Login = () => {
               <a href="#">Forget Password</a>
             </div>
 
-            <button disabled={loading} type="submit" onClick={handleClick}>
-              Login
+            <button type="submit">
+              Sing In
             </button>
-            {error && <span>{error.message}</span>}
+            {error && <div style={{ color: "black" }}>{error}</div>}
 
             <div className="register-link">
               <p>
