@@ -61,16 +61,15 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-
     let user = await User.findOne({
       $or: [{ username }, { emailAddress: username }],
     });
-
+    const status = user.status;
     const isPasswordCorrect = await bcrypt.compare(
       password,
       user?.password || ""
     );
-    if (!user || !isPasswordCorrect) {
+    if (status == 0 || !user || !isPasswordCorrect) {
       return res.status(400).json({ error: "Invalid username or password" });
     }
     generateTokenAndSetCookie(user._id, res);
@@ -85,6 +84,7 @@ export const login = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 export const logout = async (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
