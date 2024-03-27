@@ -6,7 +6,7 @@ import generateRandomPassword from "../utils/generateRandomPassword.js";
 
 export const signup = async (req, res) => {
   try {
-    const {
+      const {
       fullName,
       birthday,
       gender,
@@ -15,16 +15,16 @@ export const signup = async (req, res) => {
       emailAddress,
       username,
       jobRole,
-      status,
     } = req.body;
     const user = await User.findOne({ username });
+    console.log(user);
     if (user) {
       return res.status(400).json({ error: "Username already exists" });
     }
     const password = generateRandomPassword();
 
     //AUTOMATED EMAIL SENDER HERE
-    
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const newUser = new User({
@@ -37,7 +37,7 @@ export const signup = async (req, res) => {
       username,
       password: hashedPassword,
       jobRole,
-      status,
+      status: 1,
     });
     if (newUser) {
       generateTokenAndSetCookie(newUser._id, res);
@@ -48,7 +48,7 @@ export const signup = async (req, res) => {
         emailAddress: newUser.emailAddress,
         username: newUser.username,
         profilePic: newUser.profilePic,
-        password:password
+        password: password,
       });
     } else {
       res.status(400).json({ error: "Invalid user data" });
