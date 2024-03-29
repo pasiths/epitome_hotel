@@ -17,7 +17,6 @@ export const signup = async (req, res) => {
       jobRole,
     } = req.body;
     const user = await User.findOne({ username });
-    console.log(user);
     if (user) {
       return res.status(400).json({ error: "Username already exists" });
     }
@@ -70,7 +69,7 @@ export const login = async (req, res) => {
       password,
       user?.password || ""
     );
-    if (status == 0 || !user || !isPasswordCorrect) {
+    if (status === 0 || !user || !isPasswordCorrect) {
       return res.status(400).json({ error: "Invalid username or password" });
     }
     generateTokenAndSetCookie(user._id, res);

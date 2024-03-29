@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 
-const protectRoute = async (req, res, next) => {
+export const protectRoute = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;
     if (!token) {
@@ -25,4 +25,21 @@ const protectRoute = async (req, res, next) => {
   }
 };
 
-export default protectRoute;
+export const protectAdminRoute = async (req, res, next) => {
+  try {
+    const token = req.cookies.jwt;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.userId).select("-password");
+    let jobRole = user.jobRole;
+    console.log(jobRole);
+    if (jobRole !== "Admin") {
+      if (jobRole !== "admin") {
+        return res.status(401).json({ error: "Unauthorized user" });
+      }
+    }
+    next();
+  } catch (error) {
+    console.log("Error in protectAdminRoute middleware: ", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
