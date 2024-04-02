@@ -1,19 +1,20 @@
+import bcrypt from "bcryptjs";
+
 import User from "../models/user.model.js";
 
 export const updateUser = async (req, res) => {
   try {
-    const { id } = req.query;
-    let query = { status: { $ne: "0" } };
-    if (id) {
-      query._id = id;
+    const id = req.params.id;
+    const userData = await User.findById(id).select("status");
+    if (userData.status === "0") {
+      return res.status(404).json({ error: "User not found" });
     }
-    const update = await User.updateMany(
-      query,
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
       { $set: req.body },
       { new: true }
     );
-    console.log(update.matchedCount)
-    if (update.matchedCount === 0)
+    if (updatedUser.matchedCount === 0)
       return res
         .status(400)
         .json({ error: "User not found or no changes applied" });
@@ -26,13 +27,14 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    const { id } = req.query;
-    let query = { status: { $ne: "0" } };
-    if (id) {
-      query._id = id;
+    const id = req.params.id;
+    const userData = await User.findById(id).select("status");
+    if (userData.status === "0") {
+      return res.status(404).json({ error: "User not found" });
     }
     const newStatus = "0";
-    const deleteu = await User.updateMany(query, { status: newStatus });
+
+    const deleteu = await User.findByIdAndUpdate(id, { status: newStatus });
     if (deleteu.matchedCount === 0)
       return res
         .status(400)
@@ -46,21 +48,17 @@ export const deleteUser = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const { id } = req.query;
-    let query = { status: { $ne: 0 } };
-    if (id) {
-      query._id = id;
-    }
-    const users = await User.find(query).select(
-      "fullName birthday gender address contactNumber emailAddress username jobRole"
+    const id = req.params.id;
+    const users = await User.findById(id).select(
+      "fullName birthday gender address contactNumber emailAddress username jobRole status"
     );
-    if (!users)
+    if (!users || users.status === "0")
       return res
         .status(400)
         .json("No user found with the provided ID or no user data.");
     res.status(200).json(users);
   } catch (error) {
-    console.log("Error in get one user controller: ", error.message);
+    console.log("Error in get user controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -77,6 +75,35 @@ export const getUsers = async (req, res) => {
     res.status(200).json(users);
   } catch (error) {
     console.log("Error in get all users controller: ", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const changePassword = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { password, newPassword } = req.body;
+    const userData = await User.findById(id).select("status password");
+    if (userData.status === "0") {
+      return res.status(404).json({ error: "User not found" });
+    }
+    const isPasswordCorrect = await bcrypt.compare(
+      password,
+      userData?.password || ""
+    );
+    if (!isPasswordCorrect) {
+      return res.status(400).json({ error: "password not match" });
+    }
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+    const pc = await User.findByIdAndUpdate(id, { password: hashedPassword });
+    if (pc.matchedCount === 0)
+      return res
+        .status(400)
+        .json({ error: "User not found or already deleted" });
+    res.status(200).json("password changed successful");
+  } catch (error) {
+    console.log("Error in changing user password controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };

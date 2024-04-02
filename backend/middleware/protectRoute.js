@@ -31,7 +31,6 @@ export const protectAdminRoute = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findById(decoded.userId).select("-password");
     let jobRole = user.jobRole;
-    console.log(jobRole);
     if (jobRole !== "Admin") {
       if (jobRole !== "admin") {
         return res.status(401).json({ error: "Unauthorized user" });

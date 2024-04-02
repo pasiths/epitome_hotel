@@ -6,7 +6,7 @@ import generateRandomPassword from "../utils/generateRandomPassword.js";
 
 export const signup = async (req, res) => {
   try {
-      const {
+    const {
       fullName,
       birthday,
       gender,
@@ -19,6 +19,10 @@ export const signup = async (req, res) => {
     const user = await User.findOne({ username });
     if (user) {
       return res.status(400).json({ error: "Username already exists" });
+    }
+    const uEmail = await User.findOne({ emailAddress });
+    if (uEmail) {
+      return res.status(400).json({ error: "Email address already exists" });
     }
     const password = generateRandomPassword();
 
