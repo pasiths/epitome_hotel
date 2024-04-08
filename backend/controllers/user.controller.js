@@ -33,7 +33,6 @@ export const deleteUser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
     const newStatus = "0";
-
     const deleteu = await User.findByIdAndUpdate(id, { status: newStatus });
     if (deleteu.matchedCount === 0)
       return res
@@ -92,7 +91,7 @@ export const changePassword = async (req, res) => {
       userData?.password || ""
     );
     if (!isPasswordCorrect) {
-      return res.status(400).json({ error: "password not match" });
+      return res.status(400).json({ error: "Current password is incorrect" });
     }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(newPassword, salt);
@@ -101,7 +100,7 @@ export const changePassword = async (req, res) => {
       return res
         .status(400)
         .json({ error: "User not found or already deleted" });
-    res.status(200).json("password changed successful");
+    res.status(200).json("Password changed successfully");
   } catch (error) {
     console.log("Error in changing user password controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
