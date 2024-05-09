@@ -14,9 +14,9 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 5050;
-
 dotenv.config();
+
+const PORT = process.env.PORT || 5050;
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
