@@ -20,6 +20,11 @@ export const sendOrder = async (req, res) => {
       !addedUser ||
       !status
     ) {
+      customLogger.error({
+        message: "Missing required fields",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res.status(400).json({ error: "Missing required fields" });
     }
     const order = await Orders.create({
@@ -32,6 +37,11 @@ export const sendOrder = async (req, res) => {
       status: status,
     });
     if (!order) {
+      customLogger.error({
+        message: "Failed to create order",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res.status(400).json({ error: "Failed to create order" });
     }
     const orderProducts = [];
@@ -50,6 +60,11 @@ export const sendOrder = async (req, res) => {
         !status
       ) {
         await Orders.findByIdAndDelete(order._id);
+        customLogger.error({
+          message: "Failed to create order product",
+          userID: loginUserId(req),
+          originalUrl: req.originalUrl,
+        });
         return res
           .status(400)
           .json({ error: "Failed to create order product" });
@@ -63,6 +78,11 @@ export const sendOrder = async (req, res) => {
         status,
       });
       if (!orderProduct) {
+        customLogger.error({
+          message: "Failed to create order product",
+          userID: loginUserId(req),
+          originalUrl: req.originalUrl,
+        });
         await Orders.findByIdAndDelete(order._id);
         return res
           .status(400)
@@ -75,9 +95,19 @@ export const sendOrder = async (req, res) => {
       order.save(),
       ...orderProducts.map((product) => product.save()),
     ]);
+    customLogger.info({
+      message: "Order sent successfully",
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
     res.status(201).json({ message: "Order sent successfully", order });
   } catch (error) {
-    console.error("Error in sendOrder controller: ", error.message);
+    customLogger.error({
+      message: `Error in sendOrder controller: ${error.message}`,
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
+    // console.error("Error in sendOrder controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -86,6 +116,11 @@ export const getOrders = async (req, res) => {
   try {
     const orders = await Orders.find({ status: { $ne: 0 } }).select();
     if (!orders || orders.length === 0) {
+      customLogger.error({
+        message: "No orders found",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res.status(400).json({ error: "No orders found" });
     }
     const expandedOrders = [];
@@ -115,9 +150,19 @@ export const getOrders = async (req, res) => {
         addedUser,
       });
     }
+    customLogger.info({
+      message: "Orders retrieved successfully",
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
     res.status(200).json(expandedOrders);
   } catch (error) {
-    console.error("Error in getOrders controller: ", error.message);
+    customLogger.error({
+      message: `Error in getOrders controller: ${error.message}`,
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
+    // console.error("Error in getOrders controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -127,6 +172,11 @@ export const getOrder = async (req, res) => {
     let _id = req.params.id;
     const orders = await Orders.find({ _id, status: { $ne: 0 } });
     if (!orders || orders.length === 0) {
+      customLogger.error({
+        message: "No orders found",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res.status(400).json({ error: "No orders found" });
     }
     const expandedOrders = [];
@@ -156,9 +206,19 @@ export const getOrder = async (req, res) => {
         addedUser,
       });
     }
+    customLogger.info({
+      message: "Order retrieved successfully",
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
     res.status(200).json(expandedOrders);
   } catch (error) {
-    console.error("Error in getOrder controller: ", error.message);
+    customLogger.error({
+      message: `Error in getOrder controller: ${error.message}`,
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
+    // console.error("Error in getOrder controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -171,11 +231,26 @@ export const getOrderProduct = async (req, res) => {
       status: { $ne: 0 },
     });
     if (!orderProduct || orderProduct.length === 0) {
+      customLogger.error({
+        message: "No order products found",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res.status(400).json({ error: "No order products found" });
     }
+    customLogger.info({
+      message: "Order products retrieved successfully",
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
     res.status(200).json(orderProduct);
   } catch (error) {
-    console.error("Error in getOrderProduct controller: ", error.message);
+    customLogger.error({
+      message: `Error in getOrderProduct controller: ${error.message}`,
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
+    // console.error("Error in getOrderProduct controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -189,13 +264,28 @@ export const acceptOrder = async (req, res) => {
       { new: true }
     );
     if (!updatedOrderProduct) {
+      customLogger.error({
+        message: "Order product not found or cannot be accepted",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res
         .status(404)
         .json({ error: "Order product not found or cannot be accepted" });
     }
+    customLogger.info({
+      message: "Order accepted successfully",
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
     res.status(200).json({ message: "Order accepted successfully" });
   } catch (error) {
-    console.error("Error in acceptOrder controller: ", error.message);
+    customLogger.error({
+      message: `Error in acceptOrder controller: ${error.message}`,
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
+    // console.error("Error in acceptOrder controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -209,13 +299,28 @@ export const deliveredOrder = async (req, res) => {
       { new: true }
     );
     if (!updatedOrderProduct) {
+      customLogger.error({
+        message: "Order product not found or cannot be marked as delivered",
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
       return res.status(404).json({
         error: "Order product not found or cannot be marked as delivered",
       });
     }
+    customLogger.info({
+      message: "Order marked as delivered successfully",
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
     res.status(200).json({ message: "Order marked as delivered successfully" });
   } catch (error) {
-    console.error("Error in deliveredOrder controller: ", error.message);
+    customLogger.error({
+      message: `Error in deliveredOrder controller: ${error.message}`,
+      userID: loginUserId(req),
+      originalUrl: req.originalUrl,
+    });
+    // console.error("Error in deliveredOrder controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
