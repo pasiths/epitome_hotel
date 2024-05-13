@@ -1,6 +1,7 @@
 import OrderProduct from "../models/order.product.model.js";
 import Orders from "../models/order.model.js";
 import loginUserId from "../utils/loginUserId.js";
+import { customLogger } from "../utils/logger.js";
 
 export const sendOrder = async (req, res) => {
   try {
@@ -152,7 +153,7 @@ export const getOrders = async (req, res) => {
     }
     customLogger.info({
       message: "Orders retrieved successfully",
-      userID: loginUserId(req),
+      userID: "loginUserId(req)",
       originalUrl: req.originalUrl,
     });
     res.status(200).json(expandedOrders);

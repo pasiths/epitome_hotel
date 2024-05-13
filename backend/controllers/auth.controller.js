@@ -40,7 +40,7 @@ export const login = async (req, res) => {
     customLogger.error({
       message: `Error in login controller: ${error.message}`,
       userID: "",
-      originalUrl: "",
+      originalUrl: req.originalUrl,
     });
     // console.error("Error in login controller:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
@@ -61,7 +61,7 @@ export const logout = async (req, res) => {
     customLogger.error({
       message: `Error in logout controller: ${error.message}`,
       userID: loginUserId(req),
-      originalUrl: "",
+      originalUrl: req.originalUrl,
     });
     // console.error("Error in logout controller:", error.message);
     res.status(500).json({ error: "Internal Server Error" });

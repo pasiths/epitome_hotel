@@ -9,7 +9,7 @@ const customFormat = printf(
 
 export const customLogger = createLogger({
   transports: [
-    new transports.Console(),
+    // new transports.Console(),
     new transports.File({
       filename: "./logsFiles/logs.log",
     }),

@@ -1,4 +1,5 @@
 import Product from "../models/product.model.js";
+import { customLogger } from "../utils/logger.js";
 import loginUserId from "../utils/loginUserId.js";
 
 export const insertProduct = async (req, res) => {

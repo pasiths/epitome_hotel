@@ -159,7 +159,7 @@ export const deleteUser = async (req, res) => {
       userID: loginUserId(req),
       originalUrl: req.originalUrl,
     });
-    console.error("Error in delete user controller: ", error.message);
+    // console.error("Error in delete user controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
