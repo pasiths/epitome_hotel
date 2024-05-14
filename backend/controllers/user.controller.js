@@ -5,6 +5,7 @@ import generateRandomPassword from "../utils/generateRandomPassword.js";
 import { customLogger } from "../utils/logger.js";
 import loginUserId from "../utils/loginUserId.js";
 import generateUsername from "../utils/generateUsername.js";
+import { sendEmail } from "../utils/sendEmail.js";
 
 export const insertUser = async (req, res) => {
   try {
@@ -35,7 +36,6 @@ export const insertUser = async (req, res) => {
         userID: loginUserId(req),
         originalUrl: req.originalUrl,
       });
-      console.log(`Error generating username: ${username.error}`);
       return res.status(400).json({ error: "Error generating username" });
     }
     const password = generateRandomPassword();
@@ -55,19 +55,44 @@ export const insertUser = async (req, res) => {
     });
     if (newUser) {
       await newUser.save();
+      const sendMailResult = await sendEmail(
+        emailAddress,
+        fullName,
+        username,
+        password
+      );
+      if (sendMailResult.error) {
+        customLogger.error({
+          message: sendMailResult.error,
+          userID: loginUserId(req),
+          originalUrl: req.originalUrl,
+        });
+        await User.deleteOne({ _id: newUser._id });
+        customLogger.error({
+          message: "Email sending failed, user creation rolled back",
+          userID: loginUserId(req),
+          originalUrl: req.originalUrl,
+        });
+        return res
+          .status(500)
+          .json({ error: "Email sending failed, user creation rolled back" });
+      }
       customLogger.info({
-        message: "User added successfully",
+        message: "User added email sent successfully",
         userID: loginUserId(req),
         originalUrl: req.originalUrl,
       });
-      res.status(201).json({
-        _id: newUser._id,
-        fullName: newUser.fullName,
-        emailAddress: newUser.emailAddress,
-        username: newUser.username,
-        profilePic: newUser.profilePic,
-        password: password,
-      });
+      res
+        .status(201)
+        .json({ message: "User created and email sent successfully" });
+      // res.status(201).json({
+      //   _id: newUser._id,
+      //   fullName: newUser.fullName,
+      //   emailAddress: newUser.emailAddress,
+      //   username: newUser.username,
+      //   profilePic: newUser.profilePic,
+      //   password: password,
+      // });
     } else {
       customLogger.error({
         message: "Invalid user data",
