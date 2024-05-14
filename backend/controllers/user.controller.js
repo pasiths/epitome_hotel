@@ -4,6 +4,7 @@ import User from "../models/user.model.js";
 import generateRandomPassword from "../utils/generateRandomPassword.js";
 import { customLogger } from "../utils/logger.js";
 import loginUserId from "../utils/loginUserId.js";
+import generateUsername from "../utils/generateUsername.js";
 
 export const insertUser = async (req, res) => {
   try {
@@ -14,21 +15,28 @@ export const insertUser = async (req, res) => {
       address,
       contactNumber,
       emailAddress,
-      username,
       jobRole,
     } = req.body;
     const existingUser = await User.findOne({
-      $or: [{ username }, { emailAddress }],
+      $or: [{ fullName }, { contactNumber }, { emailAddress }],
     });
     if (existingUser) {
       customLogger.error({
-        message: "Username or Email already exists",
+        message: "User already exists",
         userID: loginUserId(req),
         originalUrl: req.originalUrl,
       });
-      return res
-        .status(400)
-        .json({ error: "Username or Email already exists" });
+      return res.status(400).json({ error: "User already exists" });
+    }
+    let username = await generateUsername(fullName);
+    if (username.error) {
+      customLogger.error({
+        message: username.error,
+        userID: loginUserId(req),
+        originalUrl: req.originalUrl,
+      });
+      console.log(`Error generating username: ${username.error}`);
+      return res.status(400).json({ error: "Error generating username" });
     }
     const password = generateRandomPassword();
     const salt = await bcrypt.genSalt(10);
@@ -70,7 +78,7 @@ export const insertUser = async (req, res) => {
     }
   } catch (error) {
     customLogger.error({
-      message: `Error in insert user controller, ${error.message}`,
+      message: `Error in insert user controller: ${error.message}`,
       userID: loginUserId(req),
       originalUrl: req.originalUrl,
     });
